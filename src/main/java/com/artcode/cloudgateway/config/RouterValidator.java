@@ -13,9 +13,10 @@ public class RouterValidator {
 	static {
 //		List<String> openApiEndpoints =  List.of("/auth/register", "/auth/login");
 		openApiEndpoints = new ArrayList<>();
-		openApiEndpoints.add("/restaurant/register");
+		openApiEndpoints.add("/register/restaurant");
 		openApiEndpoints.add("/auth/login");
-		openApiEndpoints.add("/admin/register");
+		openApiEndpoints.add("/register/admin");
+		openApiEndpoints.add("/register/customer");
 //		openApiEndpoints.add("/v3/api-docs/**");
 	}
      

@@ -1,0 +1,89 @@
+server:
+  port: 9090
+  
+spring:  application:    name: API-GATEWAY
+  cloud:    gateway:      discovery:
+        locator:
+          enabled: true
+      routes:
+         - id: openapi
+           uri: http://localhost:${server.port}
+           predicates:
+            - Path=/v3/api-docs/**
+           filters:
+            - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
+         - id: restaurant-service
+           uri: lb://restaurant-service
+           predicates:
+            - Path=/restaurant/**
+           filters:
+            - RewritePath=/restaurant/(?<path>.*), /$\{path}
+         - id: admin-service
+           uri: lb://admin-service
+           predicates:
+            - Path=/admin/**
+           filters:
+            - RewritePath=/admin/(?<path>.*), /$\{path}
+         - id: auth-service
+           uri: lb://auth-service
+           predicates:
+            - Path=/auth/**
+           filters:
+            - RewritePath=/auth/(?<path>.*), /$\{path}
+         - id: customer-service
+           uri: lb://customer-service
+           predicates:
+            - Path=/customer/**
+           filters:
+            - RewritePath=/customer/(?<path>.*), /$\{path}
+         - id: order-service
+           uri: lb://order-service
+           predicates:
+            - Path=/order/**
+           filters:
+            - RewritePath=/order/(?<path>.*), /$\{path}
+         - id: delivery-service
+           uri: lb://delivery-service
+           predicates:
+            - Path=/delivery/**
+           filters:
+            - RewritePath=/delivery/(?<path>.*), /$\{path}
+            
+#    globalcors:
+#        corsConfigurations:
+#          '[/**]':
+#            allowedOrigins: {"*","http://localhost:4200"}
+#            allowedHeaders:
+#              - "*"
+#            allowedMethods:
+#              - GET
+#              - POST
+#              - "*"
+           
+
+jwt:
+  secret: BvPHGM8C0ia4uOuxxqPD5DTbWC9F9TWvPStp3pb7ARo0oK2mJ3pd3YG4lxA9i8bj6OTbadwezxgeEByY
+            
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+        
+        
+eureka:
+ client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+ instance:
+    hostname: localhost

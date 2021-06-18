@@ -25,6 +25,11 @@ public class AuthenticationFilter implements GatewayFilter {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
+        if (!this.isAuthMissing(request)) {
+        	 final String token = this.getAuthHeader(request);
+             System.out.println("token : "+token);
+        }
+       
 
 //        if(!request.getPath().value().contains("/v3/api-docs")) {
 //        	if (routerValidator.isSecured.test(request)) {
