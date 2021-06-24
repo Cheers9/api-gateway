@@ -48,6 +48,12 @@ spring:  application:    name: API-GATEWAY
             - Path=/delivery/**
            filters:
             - RewritePath=/delivery/(?<path>.*), /$\{path}
+         - id: notification-service
+           uri: lb://notification-service
+           predicates:
+            - Path=/**
+           filters:
+            - RewritePath=/(?<path>.*), /$\{path}
             
 #    globalcors:
 #        corsConfigurations:
