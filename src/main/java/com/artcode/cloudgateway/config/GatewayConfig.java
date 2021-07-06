@@ -40,9 +40,9 @@ public class GatewayConfig {
                 .route("delivery-service", r -> r.path("/delivery/**")
                         .filters(f -> f.filter(filter))
                         .uri("lb://delivery-service"))
-                .route("notification-service", r -> r.path("/**")
-                        .filters(f -> f.filter(filter))
-                        .uri("lb://notification-service"))
+//                .route("notification-service", r -> r.path("/**")
+//                        .filters(f -> f.filter(filter))
+//                        .uri("lb://notification-service"))
                
 //                .route("openapi", r -> r.path("/v3/api-docs/**")
 //                        .filters(f -> f.filter(filter))

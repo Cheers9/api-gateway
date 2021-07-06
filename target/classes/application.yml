@@ -48,12 +48,21 @@ spring:  application:    name: API-GATEWAY
             - Path=/delivery/**
            filters:
             - RewritePath=/delivery/(?<path>.*), /$\{path}
+<<<<<<< HEAD
+#         - id: notification-service
+#           uri: lb://notification-service
+#           predicates:
+#            - Path=/**
+#           filters:
+#            - RewritePath=/(?<path>.*), /$\{path}
+=======
          - id: notification-service
            uri: lb://notification-service
            predicates:
             - Path=/**
            filters:
             - RewritePath=/(?<path>.*), /$\{path}
+>>>>>>> branch 'master' of https://visionitsoftware@bitbucket.org/chakanvisionitsoftware/api-gateway.git
             
 #    globalcors:
 #        corsConfigurations:
