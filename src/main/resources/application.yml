@@ -1,8 +1,12 @@
 server:
   port: 9090
   
-spring:  application:    name: API-GATEWAY
-  cloud:    gateway:      discovery:
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      discovery:
         locator:
           enabled: true
       routes:
@@ -12,6 +16,11 @@ spring:  application:    name: API-GATEWAY
             - Path=/v3/api-docs/**
            filters:
             - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
+#           predicates:
+#            - Path=/v1/api-cheer/**
+#           filters:
+#            - RewritePath=/v1/api-cheer/(?<path>.*), /$\{path}/v1/api-cheer
+            
          - id: restaurant-service
            uri: lb://restaurant-service
            predicates:
@@ -48,21 +57,13 @@ spring:  application:    name: API-GATEWAY
             - Path=/delivery/**
            filters:
             - RewritePath=/delivery/(?<path>.*), /$\{path}
-<<<<<<< HEAD
+
 #         - id: notification-service
 #           uri: lb://notification-service
 #           predicates:
 #            - Path=/**
 #           filters:
 #            - RewritePath=/(?<path>.*), /$\{path}
-=======
-         - id: notification-service
-           uri: lb://notification-service
-           predicates:
-            - Path=/**
-           filters:
-            - RewritePath=/(?<path>.*), /$\{path}
->>>>>>> branch 'master' of https://visionitsoftware@bitbucket.org/chakanvisionitsoftware/api-gateway.git
             
 #    globalcors:
 #        corsConfigurations:
@@ -74,7 +75,7 @@ spring:  application:    name: API-GATEWAY
 #              - GET
 #              - POST
 #              - "*"
-           
+     
 
 jwt:
   secret: BvPHGM8C0ia4uOuxxqPD5DTbWC9F9TWvPStp3pb7ARo0oK2mJ3pd3YG4lxA9i8bj6OTbadwezxgeEByY

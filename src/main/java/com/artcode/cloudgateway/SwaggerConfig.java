@@ -3,16 +3,6 @@
  */
 package com.artcode.cloudgateway;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.gateway.route.RouteLocator;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-
-//import springfox.documentation.swagger.web.SwaggerResource;
-//import springfox.documentation.swagger.web.SwaggerResourcesProvider;
 
 /**
  * @author VISION
@@ -20,8 +10,15 @@ import org.springframework.context.annotation.Primary;
  */
 //@Primary
 //@Configuration
+
+//@EnableWebSecurity
 public class SwaggerConfig {// implements SwaggerResourcesProvider{
 
+//	extends WebSecurityConfigurerAdapter 
+//	
+//	extends WebSecurityConfigurerAdapter 
+//	
+	
 //	 @Autowired
 //	  private RouteLocator routeLocator;
 //
@@ -47,4 +44,47 @@ public class SwaggerConfig {// implements SwaggerResourcesProvider{
 //	    swaggerResource.setSwaggerVersion(version);
 //	    return swaggerResource;
 //	  }
+
+//   @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.authorizeRequests()
+//                .antMatchers("/swagger-ui/**").permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//                .httpBasic();
+//    }
+//
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.inMemoryAuthentication()
+//                .withUser("admin")
+//                .password("arunarun")
+//                .authorities("ADMIN");
+//    }
+
+    
+    
+
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.authorizeRequests()
+//                .antMatchers("/swagger-ui/**","/javainuse-openapi/**").permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//                .httpBasic();
+//    }
+//
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.inMemoryAuthentication()
+//                .withUser("javainuse")
+//                .password(passwordEncoder().encode("javainuse"))
+//                .authorities("ADMIN");
+//    }
+//
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
+	
 }

@@ -1,10 +1,9 @@
 Manifest-Version: 1.0
+Built-By: sitaram
+Build-Jdk: 16.0.2
 Implementation-Title: cloud-gateway
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: atulg
 Implementation-Vendor-Id: com.artcode
-Build-Jdk: 1.8.0_121
-Implementation-URL: https://spring.io/projects/spring-boot/cloud-gatew
- ay
+Implementation-URL: https://spring.io/projects/spring-boot/cloud-gateway
 Created-By: Maven Integration for Eclipse
 
